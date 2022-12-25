@@ -7,12 +7,20 @@ using UnityEngine;
 public class PlayerShootController : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
-    private float fireRate = 1.0f;
+    private float fireRate = .75f;
 
 
     private void Start()
     {
         StartCoroutine(PlayerShoot());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            fireRate -= .2f;
+        }
     }
 
     private IEnumerator PlayerShoot()
@@ -22,7 +30,7 @@ public class PlayerShootController : MonoBehaviour
             var bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
             bullet.transform.DOMoveZ(bullet.transform.position.z + 10.0f, 5.0f).SetEase(Ease.Linear).SetSpeedBased()
                 .OnComplete(() => { Destroy(bullet); });
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(fireRate);
         }
     }
 }
