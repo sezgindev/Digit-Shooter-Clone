@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (GameState == GameStates.Run) return;
+            EventManager.GameStarted?.Invoke();
             GameState = GameStates.Run;
         }
     }
