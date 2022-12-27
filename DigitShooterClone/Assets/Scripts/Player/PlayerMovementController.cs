@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,25 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     private float _speed = 2.0f;
+    private SwerveInputSystem _swerveInputSystem;
+    private float _maxSwerveAmount = .3f;
+
+    private void Awake()
+    {
+        _swerveInputSystem = FindObjectOfType<SwerveInputSystem>();
+    }
 
     void Update()
     {
         if (GameManager.GameState == GameManager.GameStates.Run)
         {
-            transform.Translate(0, 0, (_speed * Time.deltaTime), Space.Self);
+            float swerveAmount = Time.deltaTime * 2.0f * _swerveInputSystem.MoveFactorX;
+            transform.Translate(swerveAmount, 0, (_speed * Time.deltaTime), Space.World);
+
+            Vector3 transformPosition = transform.position;
+            transformPosition.x = Mathf.Clamp(transformPosition.x, -_maxSwerveAmount,
+                _maxSwerveAmount);
+            transform.position = transformPosition;
         }
     }
 }
