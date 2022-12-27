@@ -6,5 +6,6 @@ using UnityEngine.Events;
 public static class EventManager
 {
     public static UnityAction GameStarted;
-    public static UnityAction<GateController.SkillTypes,float> OnGetSkill;
+    public static UnityAction<float> OnGetDigitNumber;
+    public static UnityAction<GateController.SkillTypes, float> OnGetSkill;
 }
