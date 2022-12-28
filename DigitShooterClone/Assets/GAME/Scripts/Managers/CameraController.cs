@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = _player.transform.position + _offset;
+        var pos = _player.transform.position + _offset;
+        pos.x = 0;
+        transform.position = pos;
     }
 }

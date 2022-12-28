@@ -38,12 +38,19 @@ public class GateController : MonoBehaviour
 
         if (other.gameObject.layer == _bulletDigitLayer)
         {
-            _skillAmount += 1;
-            other.gameObject.layer = 0;
-            other.gameObject.transform.DOKill();
-            Destroy(other.gameObject);
+            DigitHit(other.gameObject);
             SetTextAmount();
         }
+    }
+
+    private void DigitHit(GameObject digit)
+    {
+        transform.DOKill();
+        transform.DOPunchScale(Vector3.one*.004f, .2f);
+        _skillAmount += 1;
+        digit.layer = 0;
+        digit.transform.DOKill();
+        Destroy(digit);
     }
 
     private void SetTextAmount()
