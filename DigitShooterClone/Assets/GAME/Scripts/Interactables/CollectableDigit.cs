@@ -8,8 +8,7 @@ public class CollectableDigit : MonoBehaviour
 {
     private const int _bulletDigitLayer = 8;
     private const int _playerLayer = 6;
-
-    [SerializeField] private int _currentNumber = 10;
+    [SerializeField] private float _currentNumber = 10;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,7 +32,7 @@ public class CollectableDigit : MonoBehaviour
         ChangeNumberModel(_currentNumber);
     }
 
-    private void ChangeNumberModel(int newNumber)
+    private void ChangeNumberModel(float newNumber)
     {
         //do something
     }

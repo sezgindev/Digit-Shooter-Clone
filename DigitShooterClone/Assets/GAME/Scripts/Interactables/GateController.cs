@@ -13,8 +13,9 @@ public class GateController : MonoBehaviour
     private const int _playerLayer = 6;
     private const int _bulletDigitLayer = 8;
     private Renderer _cubeRenderer;
-    private readonly Color _redColor = new Color(231, 25, 21, 92);
-    private readonly Color _greenColor = new Color(0, 212, 71, 92);
+    private readonly Color _redColor = new Color(0.91f, 0.1f, 0.08f, 0.36f);
+    private readonly Color _greenColor = new Color(0f, 0.83f, 0.28f, 0.36f);
+
 
     public enum SkillTypes
     {
@@ -38,6 +39,7 @@ public class GateController : MonoBehaviour
         if (other.gameObject.layer == _bulletDigitLayer)
         {
             _skillAmount += 1;
+            other.gameObject.layer = 0;
             other.gameObject.transform.DOKill();
             Destroy(other.gameObject);
             SetTextAmount();
@@ -46,15 +48,24 @@ public class GateController : MonoBehaviour
 
     private void SetTextAmount()
     {
-        _gateText.SetText("+" + _skillAmount + "\n" + _skillType);
+        string mathSign = "+";
+
+        if (_skillAmount > 0)
+            mathSign = "+";
+        else
+        {
+            mathSign = "";
+        }
+
+        _gateText.SetText(mathSign + _skillAmount + "\n" + _skillType);
 
         if (_skillAmount > 0)
         {
-            //  _cubeRenderer.material.SetColor("_Color", _greenColor);
+            _cubeRenderer.material.SetColor("_Color", _greenColor);
         }
         else
         {
-            //  _cubeRenderer.material.SetColor("_Color", _redColor);
+            _cubeRenderer.material.SetColor("_Color", _redColor);
         }
     }
 }

@@ -1056,6 +1056,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2607390910874257295, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
+      propertyPath: _skillAmount
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607390911144276656, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
+      propertyPath: _skillAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607390911144276657, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5194853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607390911144276657, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
+      propertyPath: m_Center.y
+      value: -0.090257406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607390911144276657, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0000011677794
+      objectReference: {fileID: 0}
     - target: {fileID: 2607390912740558054, guid: dbb3f08d0d91ca94aa50c73a90849f5c, type: 3}
       propertyPath: m_Name
       value: Gate
