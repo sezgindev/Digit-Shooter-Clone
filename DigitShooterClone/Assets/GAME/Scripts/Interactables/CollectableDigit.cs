@@ -11,7 +11,14 @@ public class CollectableDigit : MonoBehaviour
     [SerializeField] private float _currentNumber = 10;
     [SerializeField] private List<GameObject> digits;
     [SerializeField] private List<GameObject> _currentDigits;
+    private readonly Color _redColor = new Color(0.91f, 0.1f, 0.08f, 0.36f);
+    private readonly Color _greenColor = new Color(0f, 0.83f, 0.28f, 0.36f);
 
+
+    private void Awake()
+    {
+        CheckColor();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +63,7 @@ public class CollectableDigit : MonoBehaviour
         }
 
         DigitRePositioning();
+        CheckColor();
     }
 
     private void DigitRePositioning()
@@ -68,6 +76,26 @@ public class CollectableDigit : MonoBehaviour
             newPos.x += xOffset;
             _currentDigits[i].transform.position = newPos;
             xOffset += 0.2f;
+        }
+    }
+
+    private void CheckColor()
+    {
+        if (_currentNumber > 0)
+        {
+            foreach (var digit in _currentDigits)
+            {
+                Renderer digitRenderer = digit.GetComponent<Renderer>();
+                digitRenderer.material.SetColor("_Color", _greenColor);
+            }
+        }
+        else
+        {
+            foreach (var digit in _currentDigits)
+            {
+                Renderer digitRenderer = digit.GetComponent<Renderer>();
+                digitRenderer.material.SetColor("_Color", _redColor);
+            }
         }
     }
 }
