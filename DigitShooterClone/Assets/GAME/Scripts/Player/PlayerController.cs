@@ -3,31 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : BaseDigitController
 {
     private float _currentDigit = 1;
 
+
     private void OnEnable()
     {
+        EventManager.OnGetDigitNumber += DigitIncrease;
     }
 
     private void OnDisable()
     {
+        EventManager.OnGetDigitNumber -= DigitIncrease;
     }
+
 
     private void Awake()
     {
-        ChangeNumberModel();
+        ChangeNumberModel(_currentDigit);
     }
 
-    private void ChangeNumberModel()
+    private void DigitIncrease(float increaseAmount)
     {
-        //do something
-    }
-
-    private void ChangeCurrentDigit(float numberAmount)
-    {
-        _currentDigit += numberAmount;
-        ChangeNumberModel();
+        _currentNumber += increaseAmount;
+        ChangeNumberModel(_currentNumber);
     }
 }

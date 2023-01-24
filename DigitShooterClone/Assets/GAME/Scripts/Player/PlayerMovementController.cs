@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    private float _speed = 2.0f;
+    private float _speed = 1.0f;
     private SwerveInputSystem _swerveInputSystem;
-    private float _maxSwerveAmount = .3f;
+    private float _maxSwerveAmount = .5f;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (GameManager.GameState == GameManager.GameStates.Run)
         {
-            float swerveAmount = Time.deltaTime * 2.0f * _swerveInputSystem.MoveFactorX;
+            float swerveAmount = Time.deltaTime * 1.0f * _swerveInputSystem.MoveFactorX;
             transform.Translate(swerveAmount, 0, (_speed * Time.deltaTime), Space.World);
 
             Vector3 transformPosition = transform.position;
