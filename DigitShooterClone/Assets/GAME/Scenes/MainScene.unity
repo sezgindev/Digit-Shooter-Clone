@@ -3374,7 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1dbf16ec0beb1a418eed648113b2825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 4311699165721312677, guid: ff7bd5643f862804ba92922de2a4b3fa, type: 3}
+  _bullet: {fileID: 1631793721914775120, guid: 7caba9e120e13564daed2f42453922f7, type: 3}
 --- !u!65 &1029870844
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3416,7 +3416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629a29208cea1a44cbf42ccc966275cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentNumber: 10
+  _currentNumber: 1
   digits:
   - {fileID: 5484651488609701792, guid: 9466453c3891c724d9251662b7753847, type: 3}
   - {fileID: 1631793721914775120, guid: d9cbf4be5eb83e14c8e9412da3e2e393, type: 3}

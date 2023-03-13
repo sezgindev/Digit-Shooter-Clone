@@ -46,7 +46,7 @@ public class GateController : MonoBehaviour
     private void DigitHit(GameObject digit)
     {
         transform.DOKill();
-        transform.DOPunchScale(Vector3.one*.004f, .2f);
+        transform.DOPunchScale(Vector3.one * .004f, .2f);
         _skillAmount += 1;
         digit.layer = 0;
         digit.transform.DOKill();

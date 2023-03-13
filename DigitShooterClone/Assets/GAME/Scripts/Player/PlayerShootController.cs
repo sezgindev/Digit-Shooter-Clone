@@ -32,6 +32,7 @@ public class PlayerShootController : MonoBehaviour
         while (true)
         {
             var bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
+            bullet.transform.DORotate(new Vector3(0, 180, 0), 0);
             bullet.transform.DOMoveZ(bullet.transform.position.z + _attackRange, 5.0f).SetEase(Ease.Linear)
                 .SetSpeedBased()
                 .OnComplete(() => { Destroy(bullet); });
